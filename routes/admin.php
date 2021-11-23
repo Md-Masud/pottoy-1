@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // admin route
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin'], function(){
     Route::resource('category', 'CategoryController');
+    Route::resource('sub-category', 'SubCategoryController');
     Route::resource('brand','BrandController');
     Route::resource('warehouse','WarehouseController');
     Route::resource('pickup_point','PickupPointController');

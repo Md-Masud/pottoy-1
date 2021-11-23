@@ -3,19 +3,50 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryFormRequest;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $categories=Category::all();
-        return view('admin.category.index',compact('categories'));
+        return view('admin.category.index',[
+            'categories' => Category::all(),
+        ]);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+       
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(CategoryFormRequest $request)
+    {
+        Category::insert([
+            'category_name' => $request->category_name,
+            'category_slug' => Str::slug($request->category_name),
+            'created_at'     => now()
+        ]);
+        return back()->with('success', __('Category add successfully'));
+    }
 
     /**
      * Display the specified resource.
@@ -25,7 +56,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+      
     }
 
     /**
@@ -36,7 +67,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data= Category::find($id);
+        return view('admin.category.edit',compact('data'));
     }
 
     /**
@@ -48,7 +80,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'category_name' => 'required|unique:categories,category_name,'.$id
+        ]);
+        Category::find($id)->update($request->except('_token','_method'));
+        return redirect('admin/category')->with('success', __('Category deleted Successrully'));
     }
 
     /**
@@ -57,8 +93,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return back()->with('delete', __('Category deleted Successrully'));
     }
 }

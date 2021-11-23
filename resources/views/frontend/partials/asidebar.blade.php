@@ -36,23 +36,23 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item ">
-            <a href="{{url('/home')}}" class="nav-link {{Route::is('home') ? 'active' : ''}} ">
+            <a href="{{route('home')}}" class="nav-link  {{Route::is('home') ? 'active' : ' '}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+                Dashboard              
               </p>
-            </a>
+            </a>            
           </li>
 
           <li class="nav-item">
-            <a href="{{route('category.index')}}" class="nav-link {{Route::is('category.index') ? 'active' : ''}}">
+            <a href="{{route('category.index')}}" class="nav-link {{Route::is('category.index',"category.edit") ? 'active' : ' '}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Category
+                Category             
               </p>
-            </a>
+            </a>            
           </li>
-            
+
           <li class="nav-item">
             <a href="{{route('sub-category.index')}}" class="nav-link {{Route::is('sub-category.index',"sub-category.edit") ? 'active' : ' '}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -61,39 +61,7 @@
               </p>
             </a>            
           </li>
-            
-            <li class="nav-item">
-                <a href="{{route('brand.index')}}" class="nav-link {{Route::is('brand.index') ? 'active' : ''}}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                       Brand
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('warehouse.index')}}" class="nav-link {{Route::is('warehouse.index') ? 'active' : ''}}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Warehouse
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('pickup_point.index')}}" class="nav-link {{Route::is('pickup_point.index') ? 'active' : ''}}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                        Pickup Point
-                    </p>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{{route('product.index')}}" class="nav-link {{Route::is('product.index') ? 'active' : ''}}">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
-                    <p>
-                       Products
-                    </p>
-                </a>
-            </li>
+ 
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
@@ -165,7 +133,7 @@
               </li>
             </ul>
           </li>
-
+         
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

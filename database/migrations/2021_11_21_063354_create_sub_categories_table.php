@@ -20,8 +20,8 @@ class CreateSubCategoriesTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
-            $table->string('name');
-            $table->string('slug');
+            $table->string('sub_category_name');
+            $table->string('sub_category_slug');
             $table->timestamps();
         });
     }

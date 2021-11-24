@@ -1,53 +1,84 @@
-<!-- /.content-wrapper -->
-<footer class="main-footer">
-    <strong>Copyright &copy; {{date('Y')}} <a href="{{url('/')}}">{{env('APP_NAME')}}</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
+
+    <!-- footer start -->
+    <footer>
+      <div class="footer-area" style="background-color: #282D3B;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-xl-3 col-lg-3 col-md-6">
+                      <div class="footer-widget">
+                          <h5>ABOUT US</h5>
+                          <div class="footer-logo">
+                              <img src="asset/img/logo.png" alt="">
+                          </div>
+                          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, amet repellendus
+                              enim ea facilis voluptate.</p>
+                          <a href="#">read more...</a>
+                      </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-6">
+                      <div class="footer-widget">
+                          <h5>CONTACT INFO</h5>
+                          <div class="footer-address">
+                              <p><strong>ADDRESS:</strong>
+                                  <span>Mirpur-1,Dhaka-1216.</span>
+                              </p>
+                              <p><strong>PHONE:</strong>
+                                  <span>01234567890</span>
+                              </p>
+                              <p><strong>EMAIL:</strong>
+                                  <span>info@gmail.com</span>
+                              </p>
+                              <p><strong>WORKING DAYS:</strong>
+                                  <span>SAT-THUS</span>
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-6">
+                      <div class="footer-widget">
+                          <h5>CUSTOMER SERVICE</h5>
+                          <ul class="footer-menu">
+                              <li><a href="#">Help & FAQs</a></li>
+                              <li><a href="#">Order Tracking</a></li>
+                              <li><a href="#">Shipping & Delivery</a></li>
+                              <li><a href="#">Orders History</a></li>
+                              <li><a href="#">Advanced search</a></li>
+                              <li><a href="#">My Account</a></li>
+                              <li><a href="#">Careers</a></li>
+                              <li><a href="#">About Us </a></li>
+                              <li><a href="#">Corporate Sales</a></li>
+                              <li><a href="#">Privacy</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="col-xl-3 col-lg-3 col-md-6">
+                      <div class="footer-widget">
+                          <h5>POPULAR TAGS</h5>
+                          <div class="footer-tags">
+                              <a href="#">bag</a>
+                              <a href="#">Black</a>
+                              <a href="#">Blue</a>
+                              <a href="#">Clothes</a>
+                              <a href="#">Fashion</a>
+                              <a href="#">Shirt</a>
+                              <a href="#">Skirt</a>
+                              <a href="#">Sports</a>
+                              <a href="#">Jeans</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
   </footer>
+  <!-- footer end -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="{{asset('admin_asset')}}/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{{asset('admin_asset')}}/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="{{asset('admin_asset')}}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="{{asset('admin_asset')}}/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="{{asset('admin_asset')}}/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="{{asset('admin_asset')}}/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="{{asset('admin_asset')}}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="{{asset('admin_asset')}}/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="{{asset('admin_asset')}}/plugins/moment/moment.min.js"></script>
-<script src="{{asset('admin_asset')}}/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{{asset('admin_asset')}}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="{{asset('admin_asset')}}/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="{{asset('admin_asset')}}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('admin_asset')}}/dist/js/adminlte.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('admin_asset')}}/dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('admin_asset')}}/dist/js/pages/dashboard.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-@stack('admin_js')
+  <script src="{{ asset('frontend_asset') }}/mixitup.min.js"></script>
+  <script src="{{ asset('frontend_asset') }}/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js">
+  </script>
+  
+  @yield('frontend_footer_js')

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
-  @include('frontend.partials.head_css')
+<head>
+@include('frontend.partials.head_css')
 </head>
 <body>
     @include('frontend.partials.navbar')

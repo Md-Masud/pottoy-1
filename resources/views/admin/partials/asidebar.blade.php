@@ -52,16 +52,16 @@
               </p>
             </a>
           </li>
-            
+
           <li class="nav-item">
             <a href="{{route('sub-category.index')}}" class="nav-link {{Route::is('sub-category.index',"sub-category.edit") ? 'active' : ' '}}">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Sub Category             
+                Sub Category
               </p>
-            </a>            
+            </a>
           </li>
-            
+
             <li class="nav-item">
                 <a href="{{route('brand.index')}}" class="nav-link {{Route::is('brand.index') ? 'active' : ''}}">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -83,6 +83,22 @@
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Pickup Point
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('campaign.index')}}" class="nav-link {{Route::is('campaign.index') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Campaign
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('setting.show')}}" class="nav-link {{Route::is('setting.show') ? 'active' : ''}}">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                        Webside Setting
                     </p>
                 </a>
             </li>

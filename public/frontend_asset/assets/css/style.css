@@ -36,9 +36,11 @@ section{
 }
 .upper-nav .notice {
 	font-size: 16px;
-	width: 100%;
 	padding: 5px;
 	margin-left: 20%;
+}
+.feature-area .single-feature{
+padding: 10px;
 }
 
 .upper-nav strong {
@@ -87,7 +89,7 @@ section{
 .upper-nav2 ul {
     border-left: .5px solid rgba(128, 128, 128, 0.555);
 }
-.scocial-icons {
+.upper-nav2 .scocial-icons {
 	position: relative;
 	border-left: .5px solid rgba(128, 128, 128, 0.493);
 	padding-left: 48px;
@@ -155,13 +157,13 @@ section{
       border: none;
 
   }
-  .navbar1 select {
-	background: none;
-	border: none;
-	cursor: pointer;
-	font-size: 14px;
-	position: absolute;
-	margin-left: -5%;
+.navbar1 select {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    margin-left: 8%;
 }
 
 .navbar1 .seacrh-btn {
@@ -210,110 +212,21 @@ section{
     background: rgba(128, 128, 128, 0.274);
     padding: 17px;
 }
+.navbar2 .navbar .nav-item .dropdown-menu{ display: none; }
+.navbar2 .navbar .nav-item:hover .nav-link{   }
+.navbar2 .navbar .nav-item:hover .dropdown-menu{ display: block; }
+.navbar2 .navbar .nav-item .dropdown-menu{ margin-top:0; }
 
 
-/* Banner Section */
-.banner-sec .hero-image img{
-    height: 355px;
-    width: 100%;
-    background-repeat: no-repeat;
-    position: relative;
-  }
-  .banner-sec{
-      padding: 10px;
-  }
-  
-  .banner-sec .hero-text {
-    text-align: center;
-    position: absolute;
-    left: 24%;
-    transform: translate(-50%, -150%);
-    color: white;
-  }
-  .banner-sec .hero-text p {
-	margin-bottom: -2%;
-}
-.banner-sec .hero-text .p2 {
-	margin-top: -4%;
-	margin-left: -83%;
-}
-.banner-sec .hero-text span {
-	padding: 5px 8px 5px 8px;
-	background: #EE3D43;
-	transform: rotate(-4.23deg);
-	position: absolute;
-	font-weight: 600;
-	font-family: poppins;
-	line-height: 21px;
-	font-size: 20px;
-	text-align: center;
-	list-style: normal;
-	margin-top: -10%;
-	margin-left: -22%;
-}
-.banner-sec .hero-text h1 {
-	font-style: normal;
-	font-weight: 800;
-	font-size: 76px;
-	line-height: 78px;
-	align-items: center;
-	text-align: center;
-	margin-top: -3%;
-}
-.banner-sec button{
-        margin-top: -12%;
-        margin-left: 6%;
-        position: absolute;
-}
-  .banner-sec .hero-text h3{
-      font-family: Krona One;
-  }
-  
-  .banner-sec  .hero-text button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 10px 25px;
-    color: rgb(255, 255, 255);
-    background-color: #555;
-    text-align: center;
-    cursor: pointer;
-  }
-  
-  .banner-sec .hero-text button:hover {
-    background-color: rgb(44, 40, 40);
-    color: white;
-  }
-  .offer-img{
-      display: flex;
-      padding: 5px;
-  }
-  .offer-img a {
-	color: black;
-	text-decoration: none;
-	display: inline-block;
-	position: absolute;
-	font-weight: 600;
-	margin-left: -15%;
-	margin-top: 5%;
-}
-  .of-1{
-      margin-left: 1%;
-  }
-  .of-1 a {
-	margin-top: 5%;
-	margin-left: -7.5%;
-}
-.of-3 a{
-    margin-top:4%;
-}
+
 
   /* feature start */
-  .row.feature-bg {
-	background: #434D5B;
+.row.feature-bg {
+    background: #434D5B;
     color: #fff;
     margin: 0;
-    padding: 20px;
+    padding: 3;
+    padding: 40px 10px 10px 10px;
 }
 .feature-content p {
 	margin: 0;
@@ -678,6 +591,33 @@ color: #000000;
     margin-right: 10px;
 }
 
+/* LEFT CATEGORIES SECTION */
+.browse-categories ul li a{
+    color: black;
+}
+.browse-categories ul li a:hover{
+  background: skyblue;
+}
+.browse-categories{
+  padding: 0;
+}
+.right-body-side .browse-categories .dropdown-toggle::after {
+	display: inline-block;
+	margin-left: .255em;
+	vertical-align: .255em;
+	content: "";
+	border-top: .3em solid;
+	border-right: .3em solid transparent;
+	border-bottom: 0;
+	border-left: .3em solid transparent;
+	margin-left: 100%;
+}
+.browse-categories .nav-item:hover .dropdown-menu {
+	display: block;
+	margin-left: 100%;
+  margin-top: -13.5%;
+}
+
 /* category end */
 
 
@@ -808,3 +748,108 @@ color: #000000;
 
 
 
+/* View Products Page Section */
+/* Slideshow container */
+.view-product .slideshow-container {
+    max-width: 100%;
+    position: relative;
+    margin: auto;
+  }
+  
+  /* Next & previous buttons */
+  .view-product  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .view-product  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .view-product  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  /* Fading animation */
+  .view-product .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  .plus-minus-input {
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .plus-minus-input .input-group-field {
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .plus-minus-input .input-group-field::-webkit-inner-spin-button,
+  .plus-minus-input .input-group-field ::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+            appearance: none;
+  }
+  
+  .plus-minus-input .input-group-button .circle {
+    border-radius: 50%;
+    padding: 0.25em 0.8em;
+  }
+  .view-product .confirm-buttons{
+      border: none;
+      background: transparent;
+  }
+  .view-product .confirm-buttons a{
+      text-decoration: none;
+      padding: 10px 30px 10px 30px;
+      color: white;
+      background: #494949;
+      border-radius: 5px;
+  }
+  .view-product .confirm-buttons a:hover{
+      background: #000;
+  }
+  .view-product .confirm-buttons button{
+    border: none;
+    background: transparent;
+  }
+  .quantity-sec input {
+	width: 35%;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #3f3f3f3f;
+}
+.view-product  a{
+    color: black;
+    text-decoration: none;
+}
+.view-product .seller-info-sec .small-boxes{
+    background: rgba(0, 0, 0, 0.027);
+}
+.view-product .seller-info-sec .small-boxes p{
+    color: gray;
+    font-size: small;
+}
+.browse-categories ul li{
+  list-style: none;
+}
+
+  

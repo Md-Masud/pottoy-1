@@ -23,7 +23,10 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
                 </div>
+
+
                 <div class="modal-body">
+                    <input type="hidden" id="id" name="id">
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-6">
@@ -118,7 +121,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-lg-6">
-                                        <label for="exampleInputPassword1">Pickup Point</label>
+                                        <label for="exampleInputPassword1">Warehouse</label>
                                         <select class="form-control" name="warehouse_id" id="warehouse_id">
                                             <option disabled="" selected="">==choose Warehouse==</option>
                                             @foreach($warehouses as $row)

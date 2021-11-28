@@ -29,7 +29,7 @@ class ProductController extends Controller
                     return $data->category->category_name;
                 })
                 ->addColumn('sub_category_name', function ($data) {
-                    return $data->subcategory->name;
+                    return $data->subcategory->sub_category_name;
                 })
                 ->addColumn('brand_name', function ($data) {
                     return $data->brand->brand_name;
@@ -40,9 +40,13 @@ class ProductController extends Controller
                 ->addColumn('pickup_point_name', function ($data) {
                     return $data->pickuppoint->pickup_point_name;
                 })
-//                ->editColumn('thumbnail',function($row) use ($imgurl){
-//                    return '<img src="'.$imgurl.'/'.$row->thumbnail.'"  height="30" width="30" >';
-//                })
+                ->addColumn('thumbnail', function($data){
+                    if ($data->thumbnail == NULL){
+                        return 'No Image';
+                    }
+                    return '<img class="rounded-square" text-align="center" width="100" height="50" src=" '.asset('public/files/product/'.$data->thumbnail).' " alt="" >';
+                })
+
                 ->editColumn('featured',function($row){
                     if ($row->featured==1) {
                         return '<a href="#" data-id="'.$row->id.'" class="deactive_featurd"><i class="fas fa-thumbs-down text-danger"></i> <span class="badge badge-success">active</span> </a>';
@@ -82,7 +86,7 @@ class ProductController extends Controller
 
                 })
                 ->rawColumns(['action', 'category_name', 'sub_category_name','brand_name','warehouse_name','pickup_point_name'
-                    ,'featured','today_deal','status'
+                    ,'featured','today_deal','status','thumbnail'
                 ])
                 ->make(true);
         }
@@ -99,7 +103,7 @@ class ProductController extends Controller
         $subcategory =SubCategory::where('category_id',$category_id)->get();;
         $option = "<option value=''>Select SubCategory</option>";
         foreach ($subcategory as $sub) {
-            $option .= '<option value="' . $sub->id . '">' . $sub->name . '</option>';
+            $option .= '<option value="' . $sub->id . '">' . $sub->sub_category_name . '</option>';
         }
 
         return $option;
@@ -163,8 +167,83 @@ class ProductController extends Controller
         return response()->json($data);
     }
 
+    public function update(Request $request, $id){
+        $data = Product::findOrFail($id);
+
+        $data->name = $request->name;
+        $slug = $data->slug = Str::slug($request->name, '-');
+        $data->code = $request->code;
+        $data->category_id = $request->category_id;
+        $data->sub_category_id = $request->sub_category_id;
+        $data->brand_id = $request->brand_id;
+        $data->pickups_id = $request->pickup_point_id;
+        $data->warehouse_id = $request->warehouse_id;
+        $data->unit = $request->unit;
+        $data->tags = $request->tags;
+        $data->purchase_price = $request->purchase_price;
+        $data->selling_price = $request->selling_price;
+        $data->discount_price = $request->discount_price;
+        $data->stock_quantity = $request->stock_quantity;
+        $data->color = $request->color;
+        $data->size = $request->size;
+        $data->description = $request->description;
+        $data->video = $request->video;
+        $data->featured = $request->featured;
+        $data->today_deal = $request->today_deal;
+        $data->product_slider = $request->product_slider;
+        $data->status = $request->status;
+        $data->admin_id = Auth::id();
+        $data->date = date('Y-m-d H:i:s');
+        $data->month =date('Y-m-d H:i:s') ;
+        //single thumbnail
+        if ($request->thumbnail) {
+            if (!$data->thumbnail == NULL){
+                unlink(public_path('public/files/product/' . $data->thumbnail));
+            }
+
+            $thumbnail = $request->thumbnail;
+            $photoname = $slug . '.' . $thumbnail->getClientOriginalExtension();
+            Image::make($thumbnail)->resize(600, 600)->save('public/files/product/' . $photoname);
+            $data->thumbnail = $photoname;   // public/files/product/plus-point.jpg
+        }
+        //multiple images
+        $images = array();
+        if ($request->hasFile('images')) {
+            $multiimage=json_decode($data->images);
+            if (!$data->images == NULL){
+                foreach ($multiimage as $imagee){
+               unlink(public_path('public/files/product/' . $imagee));
+              }
+            }
+            foreach ($request->file('images') as $key => $image) {
+                $imageName = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+                Image::make($image)->resize(600, 600)->save('public/files/product/' . $imageName);
+                array_push($images, $imageName);
+            }
+            $data->images = json_encode($images);
+        }
+        $data->save();
+        return response()->json([
+            'success' => true,
+            'message' => 'Products Update'
+        ]);
+
+
+    }
+
     public function destroy($id)
     {
+        $product = Product::findOrFail($id);
+
+        if (!$product->thumbnail == NULL){
+            unlink(public_path('public/files/product/' . $product->thumbnail));
+        }
+        $multiimage=json_decode($product->images);
+        if (!$product->images == NULL){
+            foreach ($multiimage as $imagee){
+                unlink(public_path('public/files/product/' . $imagee));
+            }
+        }
         Product::destroy($id);
         return response()->json([
             'success' => true,

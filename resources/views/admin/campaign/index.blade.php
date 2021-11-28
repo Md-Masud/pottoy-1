@@ -1,7 +1,7 @@
 
 @extends('admin.master')
 @section('title')
-    product
+  Campaign
 @endsection
 
 @section('admin_head_css')
@@ -9,11 +9,8 @@
     <link rel="stylesheet" href="{{asset('admin_asset')}}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="{{asset('admin_asset')}}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="{{asset('admin_asset')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
 @endsection
 @section('admin_contents')
-
-
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css">
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -21,7 +18,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Product</h1>
+                        <h1 class="m-0">Campaign</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -38,54 +35,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">All Product List </h3>
-                            </div><br>
-                            <div class="row p-2">
-                                <div class="form-group col-2 m-auto">
-                                    <label>Category</label>
-                                    <select class="form-control submitable" name="category_id" id="category_id">
-                                        <option value="">All</option>
-                                        @foreach($categories as $row)
-                                            <option value="{{ $row->id }}">{{ $row->category_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-2 m-auto">
-                                    <label>Brand</label>
-                                    <select class="form-control submitable" name="brand_id" id="brand_id">
-                                        <option value="">All</option>
-                                        @foreach($brands as $row)
-                                            <option value="{{ $row->id }}">{{ $row->brand_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group col-2 m-auto">
-                                    <label>warehouses</label>
-                                    <select class="form-control submitable" name="warehouse" id="warehouse">
-                                        <option value="">All</option>
-                                        @foreach($warehouses as $row)
-                                            <option value="{{ $row->warehouse_name }}">{{ $row->warehouse_name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group col-2 m-auto">
-                                    <label>warehouses</label>
-                                    <select class="form-control submitable" name="warehouse" id="warehouse">
-                                        <option value="">All</option>
-                                        @foreach($pickup_point as $row)
-                                            <option value="{{ $row->pickup_point_name }}">{{ $row->id }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group col-2 m-auto">
-                                    <label>Status</label>
-                                    <select class="form-control submitable" name="status" id="status">
-                                        <option value="1">All</option>
-                                        <option value="1">Active</option>
-                                        <option value="0">Inactive</option>
-                                    </select>
-                                </div>
+                                <h3 class="card-title">Campaign list </h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -93,20 +43,16 @@
                                     <thead>
                                     <tr>
                                         <th>SL</th>
-                                        <th>Thumbnail</th>
-                                        <th>Name</th>
-                                        <th>Code</th>
-                                        <th>Category</th>
-                                        <th>Subcategory</th>
-                                        <th>Brand</th>
-                                        <th>Featured</th>
-                                        <th>Today Deal</th>
-                                        <th>Status</th>
+                                        <th>Campaign Title</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Image</th>
+                                        <th>Status </th>
+                                        <th>Discount</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-
 
                                     </tbody>
                                 </table>
@@ -117,23 +63,7 @@
             </div>
         </section>
     </div>
-    @include('admin.product.form')
-
-
-
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.js"></script>
-    <script type="text/javascript" src="https://jeremyfagis.github.io/dropify/dist/js/dropify.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://jeremyfagis.github.io/dropify/dist/css/dropify.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/js/bootstrap-switch.min.js"></script>
-    <script type="text/javascript">
-        $('.dropify').dropify();
-        $('.dropify').dropify();  //dropify image
-        $("input[data-bootstrap-switch]").each(function(){
-            $(this).bootstrapSwitch('state', $(this).prop('checked'));
-        });
-        </script>
-
+    @include('admin.campaign.form')
     @push('admin_js')
 
         <!-- DataTables  & Plugins -->
@@ -150,10 +80,11 @@
         <script src="{{asset('admin_asset')}}/plugins/pdfmake/vfs_fonts.js"></script>
         <script src="{{asset('admin_asset')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
         <script src="{{asset('admin_asset')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-        <script src="{{asset('admin_asset')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>.
-
+        <script src="{{asset('admin_asset')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
         <script>
+
             //store coupon ajax call
+
             $(function () {
                 $("#example1").DataTable({
                     "responsive": true,
@@ -173,76 +104,49 @@
                 });
             });
             var table = $('#products-table').DataTable({
-                "processing":true,
-                "serverSide":true,
-                "searching":true,
-                "ajax":{
-                    "url": "{{ route('product.index') }}",
-                    "data":function(e) {
-                        e.category_id =$("#category_id").val();
-                        e.brand_id =$("#brand_id").val();
-                        e.status =$("#status").val();
-                        e.warehouse =$("#warehouse").val();
-                    }
-                },
-                columns:[
-                    {data:'DT_RowIndex',name:'DT_RowIndex'},
-                    {data:'thumbnail'  ,name:'thumbnail'},
-                    {data:'name'  ,name:'name'},
-                    {data:'code'  ,name:'code'},
-                    {data:'category_name',name:'category_name'},
-                    {data:'sub_category_name',name:'sub_category_name'},
-                    {data:'brand_name',name:'brand_name'},
-                    {data:'featured',name:'featured'},
-                    {data:'today_deal',name:'today_deal'},
-                    {data:'status',name:'status'},
-                    {data:'action',name:'action',orderable:true, searchable:true},
-                ]
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('campaign.index') }}",
+                columns: [
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+                    {data: 'title', name: 'title'},
+                    {data: 'start_date', name: 'start_date'},
+                    {data: 'end_date', name: 'end_date'},
+                    {data: 'image', name: 'image'},
+                    {data: 'status', name: 'status'},
+                    {data: 'discount', name: 'discount'},
 
+                    {data: 'action', name: 'action', orderable: true, searchable: true},
+                ]
             });
+
             function addForm() {
                 save_method = "add";
                 $('input[name=_method]').val('POST');
                 $('#modal-form').modal('show');
                 $('#modal-form form')[0].reset();
-                $('.modal-title').text('Add Product');
+                $('.modal-title').text('Add Campaign');
             }
+
             function editForm(id) {
                 save_method = 'edit';
                 $('input[name=_method]').val('PUT');
                 $('#modal-form form')[0].reset();
                 $.ajax({
-                    url: "{{ route('product.index') }}" + '/' + id + "/edit",
+                    url: "{{ route('campaign.index') }}" + '/' + id + "/edit",
                     type: "GET",
                     dataType: "JSON",
                     success: function(data) {
                         console.log(data)
                         $('#modal-form').modal('show');
-                        $('.modal-title').text('Edit Products');
+                        $('.modal-title').text('Edit Campaign ');
                         $('#id').val(data.id);
-                        $('#name').val(data.name);
-                        $('#code').val(data.code);
-                        $('#category_d').val(data.category_id);
-                        $('#brand').val(data.brand_id);
-                        $('#pickup_point').val(data.pickups_id);
-                        $('#sub_category').val(data.sub_category_id);
-                        $('#unit').val(data.unit);
-                        $('#tags').val(data.tags);
-                        $('#purchase_price').val(data.purchase_price);
-                        $('#selling_price').val(data.selling_price);
-                        $('#discount_price').val(data.discount_price);
-                        $('#warehouse_id').val(data.warehouse_id);
-                        $('#stock_quantity').val(data.stock_quantity);
-                        $('#size').val(data.size);
-                        $('#description').val(data.description);
-                        $('#video').val(data.video);
-                        $('#thumbnail').val(data.thumbnail);
-                        $('#images').val(data.images);
-                        $('#featured').val(data.featured);
-                        $('#today_deal').val(data.today_deal);
-                        $('#product_slider').val(data.product_slider);
-                        $('#trendy').val(data.trendy);
+                        $('#title').val(data.title);
+                        $('#start_date').val(data.start_date);
+                        $('#end_date').val(data.end_date);
                         $('#status').val(data.status);
+                        $('#discount').val(data.discount);
+                        $('#image').val(data.image);
 
                     },
                     error : function() {
@@ -254,8 +158,8 @@
                 $('#modal-form form').validator().on('submit', function (e) {
                     if (!e.isDefaultPrevented()){
                         var id = $('#id').val();
-                        if (save_method == 'add') url = "{{  route('product.store') }}";
-                        else url = "{{ route('product.index') }}" + '/' + id + "update";
+                        if (save_method == 'add') url = "{{  route('campaign.store') }}";
+                        else url = "{{ route('campaign.index') }}" + '/' + id + "update";
                         $.ajax({
                             url : url,
                             type : "POST",
@@ -306,7 +210,7 @@
                     if (result.value) {
                         event.preventDefault();
                         $.ajax({
-                            url : "{{ route('product.index') }}" + '/' + id + "destroy",
+                            url : "{{ route('campaign.index') }}" + '/' + id + "destroy",
                             type : "POST",
                             data : {'_method' : 'DELETE', '_token' : csrf_token},
                             success: function (data) {
@@ -341,7 +245,6 @@
             }
 
         </script>
-
     @endpush
 
 @endsection

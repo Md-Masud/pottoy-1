@@ -29,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-       
+
     }
 
     /**
@@ -38,8 +38,12 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryFormRequest $request)
+    public function store(Request $request)
     {
+        $this->validate($request,[
+           'category_name' =>'required',
+
+        ]);
         Category::insert([
             'category_name' => $request->category_name,
             'category_slug' => Str::slug($request->category_name),
@@ -56,7 +60,7 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-      
+
     }
 
     /**

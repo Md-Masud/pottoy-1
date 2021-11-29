@@ -1,16 +1,18 @@
 @extends('frontend.master')
 
 @section('frontend_content')
+
     <section class="banner-slider " style="height: 80%;">
+
         <div id="carouselExampleControls" class="carousel slide" style="height: 80%;" data-bs-ride="carousel">
             @foreach( $bannerproducts as  $bannerproduct)
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="{{ url($bannerproduct->image)}} "  class="d-block w-100" alt="...">
-                </div>
 
+                </div>
+                @endforeach
             </div>
-            @endforeach
 
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -22,13 +24,6 @@
             </button>
         </div>
     </section>
-
-
-
-
-
-
-
 
     <!-- Banner-bottom-bar -->
     <section class="feature-area">
@@ -70,7 +65,6 @@
         </div>
     </section>
     <br>
-
     <!-- Body Section -->
     <section class="body-section">
         <div class="container">
@@ -80,293 +74,26 @@
                     <div class="browse-categories">
                         <h3><strong>CATEGORIES</strong></h3>
                         <ul>
+                            @foreach($categories as $category)
+                                @php
+                                    $sub_categories=\App\Models\SubCategory::where('category_id',$category->id)->get();
+                                @endphp
                             <li class="nav-item dropdown">
                                 <a class="nav-link " href="#" id="navbarDropdown" role="button"  aria-expanded="true" style="color: #000000;">
-                                    Women's Accessories
+                                  {{$category->category_name}}
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Mens's Accessories
-                                </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li><li class="nav-item dropdown">
-                                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Kid's Accessories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li><li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Electric Appliances
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
+                                    @foreach($sub_categories as $sub_category)
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Furniture
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    <li><a class="dropdown-item" href="#">{{ $sub_category->sub_category_name}}</a></li>
+                                    @endforeach
                                 </ul>
-                            </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Women's Accessories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
                             </li>
+                            @endforeach
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Mens's Accessories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li><li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Kid's Accessories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li><li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Electric Appliances
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Furniture
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Women's Accessories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Mens's Accessories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li><li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Kid's Accessories
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li><li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Electric Appliances
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
-                                    Furniture
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </div>
                     <br>
@@ -395,21 +122,23 @@
 
                             <div id="product-grid" class="product-grid">
                                 <div class="row">
+
+                                    @foreach($featureds as $featured)
                                     <div class="mix category-1 col-xl-4 col-xs-6" data-myorder="1">
                                         <a href="view_product.html">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory2.jpg" class="w-100" alt="">
+
+                                                    <img src="{{asset('public/files/product/'.$featured->thumbnail)}}"  alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
-                                                                <span>caps</span>
-                                                                <span>dress</span>
+                                                                <span>{{$featured->name}}</span>
                                                             </li>
                                                             <li><i class="far fa-heart"></i></li>
                                                         </ul>
                                                         <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
+                                                            <h6>{{$featured->brand->brand_name}}</h6>
                                                             <div class="category-rating">
                                                                 <i class="far fa-star"></i>
                                                                 <i class="far fa-star"></i>
@@ -417,8 +146,14 @@
                                                                 <i class="far fa-star"></i>
                                                                 <i class="far fa-star"></i>
                                                             </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
+                                                            <div class="category-price " style="background-color: white">
+                                                                @if($featured->discount_price==NULL)
+                                                                    <span class="text-black">${{$featured->selling_price}}</span>
+                                                                @else
+                                                                    <span class="text-black">${{$featured->selling_price}}</span><br>
+                                                                    <del class="text-black">${{ $featured->discount_price }}</del>
+                                                                @endif
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -427,352 +162,50 @@
                                         </a>
 
                                     </div>
-                                    <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="2">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory3.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-1 col-xl-4 col-xs-6" data-myorder="3">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="4">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
+                                    @endforeach
 
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-1 col-xl-4 col-xs-6" data-myorder="5">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory2.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-1 col-xl-4 col-xs-6" data-myorder="6">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="7">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-1 col-xl-4 col-xs-6" data-myorder="8">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="9">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="10">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
+                                        @foreach($latest_products as $latest_product)
+                                            <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="2">
+                                                <a href="view_product.html">
+                                                    <div class="card" style="padding: 5px;">
+                                                        <div class="single-category">
 
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="11">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="mix category-1 col-xl-4 col-xs-6" data-myorder="12">
-                                        <a href="#">
-                                            <div class="card" style="padding: 5px;">
-                                                <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
-                                                    <div class="category-content">
-                                                        <ul class="category">
-                                                            <li>
-                                                                <span>caps</span>
-                                                                <span>dresh</span>
-                                                            </li>
-                                                            <li><i class="far fa-heart"></i></li>
-                                                        </ul>
-                                                        <div class="category-name">
-                                                            <h6>Porto Gray Cap</h6>
-                                                            <div class="category-rating">
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                                <i class="far fa-star"></i>
-                                                            </div>
-                                                            <div class="category-price">
-                                                                <p><span>$</span> 29.00</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
+                                                            <img src="{{asset('public/files/product/'.$latest_product->thumbnail)}}"  alt="">
+                                                            <div class="category-content">
+                                                                <ul class="category">
+                                                                    <li>
+                                                                        <span>{{$latest_product->name}}</span>
 
+                                                                    </li>
 
-                                </div>
+                                                                    <li><i class="far fa-heart"></i></li>
+                                                                </ul>
+                                                                <div class="category-name">
+                                                                    <h6>{{$latest_product->brand->brand_name}}</h6>
+                                                                    <div class="category-rating">
+                                                                        <i class="far fa-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                        <i class="far fa-star"></i>
+                                                                    </div>
+                                                                    <div class="category-price">
+                                                                        @if($latest_product->discount_price==NULL)
+                                                                            <span class="card-price">${{$latest_product->selling_price}}</span>
+                                                                        @else
+                                                                            <span class="card-price">${{$latest_product->selling_price}}</span><br>
+                                                                            <del class="card-price">${{ $latest_product->discount_price }}</del>
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                            </div>
+                                        @endforeach
+
                             </div>
                         </div>
 

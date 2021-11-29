@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="col-xl-3">
                     <div class="logo">
-                        <a href=""><img src="img/logo.png" alt="logo"></a>
+                        <a href=""><img src="{{asset('frontend_asset')}}/img/logo.png" alt="logo"></a>
                     </div>
                 </div>
                 <div class="col-xl-5 searchbar">
@@ -84,7 +84,7 @@
                 </div>
                 <div class="col-xl-4">
                     <div class="nav-items">
-                        <a href="#"><img src="img/Group 16.png" alt=""></a>
+                        <a href="#"><img src="{{asset('frontend_asset')}}/img/Group 16.png" alt=""></a>
                         <div class="s-icons">
                             <a href="#"><i class="fal fa-user"></i></a>
                             <a href="#"><i class="fal fa-heart"></i></a>

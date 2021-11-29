@@ -163,7 +163,7 @@ padding: 10px;
     cursor: pointer;
     font-size: 14px;
     position: absolute;
-    margin-left: 8%;
+    margin-left: 4%;
 }
 
 .navbar1 .seacrh-btn {
@@ -213,20 +213,70 @@ padding: 10px;
     padding: 17px;
 }
 .navbar2 .navbar .nav-item .dropdown-menu{ display: none; }
-.navbar2 .navbar .nav-item:hover .nav-link{   }
+
 .navbar2 .navbar .nav-item:hover .dropdown-menu{ display: block; }
 .navbar2 .navbar .nav-item .dropdown-menu{ margin-top:0; }
 
 
+/* banner start */
+.banner_img{
+    /* height: 800px; */
+}
+.banner_img img{
+    height: 100%;
+}
+.banner-slider{
+    position: relative;
+}
+.banner-slider i{
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+    z-index: 9;
+}
+.banner-slider i.right-arr{
+    left: 95%;
+}
+.banner-slider .banner-img-slide{
+    position: relative;
+}
+.banner-slider .banner-img-slide .banner-txt{
+    position: absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+}
+.banner-slider .banner-txt{
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.347);
+    border-radius: 5px;
+    padding: 20px;
+}
+.banner-txt p{
+   font-size: 30px;
+   font-weight: bold;
+   text-transform: uppercase;
+   margin-bottom: 0;
+}
+.banner-txt span{
+    font-size: 38px;
+    font-weight: bold;
+    text-transform: uppercase;
+ }
 
+/* banner end */
 
   /* feature start */
-.row.feature-bg {
-    background: #434D5B;
-    color: #fff;
-    margin: 0;
-    padding: 3;
-    padding: 40px 10px 10px 10px;
+  .row.feature-bg {
+	background: #434D5B;
+	color: #fff;
+	margin: 0;
+	padding: 70px 10px 10px 10px;
 }
 .feature-content p {
 	margin: 0;
@@ -269,9 +319,13 @@ padding: 10px;
 }
 .browse-categories{
     width: 100%;
-    text-align: center;
+ 
     align-items: center;
     border: 1px solid #f1f1f1;
+}
+.browse-categories h3{
+    text-align: center;
+    padding-top: 15px;
 }
 .browse-categories h5{
     background: #f1f1f1;
@@ -467,6 +521,9 @@ color: #000000;
 }
 .top-rated-products .single-category{
     display: flex;
+}
+.rtd-p{
+    width: 31.333%;
 }
 .top-rated-products .rtd-p img{
     width: 60px;

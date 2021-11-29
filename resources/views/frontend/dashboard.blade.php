@@ -1,31 +1,30 @@
 @extends('frontend.master')
 
 @section('frontend_content')
-    <section class="banner-slider " style="height: 80%;">
-        <div id="carouselExampleControls" class="carousel slide" style="height: 80%;" data-bs-ride="carousel">
-            @foreach( $bannerproducts as  $bannerproduct)
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ url($bannerproduct->image)}} "  class="d-block w-100" alt="...">
+    <section class="banner-slider">
+       
+            
+                @foreach( $bannerproducts as  $bannerproduct)
+                <div class="banner-img-slide">
+                    <div class="banner_img">
+                        <img src="{{ url($bannerproduct->image)}} "  class="img-fluid w-100" alt="..."> 
+                        
+                    </div>
+                    <div class="banner-txt">
+                        <p>{{ $bannerproduct->title}}</p>
+                        <span>discount-{{ $bannerproduct->discount}}</span>
+                      </div>
+                    
                 </div>
-
-            </div>
-            @endforeach
-
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+                @endforeach
+         
     </section>
 
 
 
+<style>
 
+    </style>
 
 
 
@@ -38,7 +37,7 @@
                     <div class="single-feature">
 
                         <div class="feature-content">
-                            <img src="img/Vector.png"  alt="">
+                            <img src="{{asset('frontend_asset')}}/img/Vector.png"  alt="">
                             <h6>FREE SHIPPING & RETURN</h6>
                             <p>Free Shipping on All Orders Over $99.</p>
                         </div>
@@ -49,7 +48,7 @@
                     <div class="single-feature">
 
                         <div class="feature-content">
-                            <img src="img/Vector (1).png" alt="">
+                            <img src="{{asset('frontend_asset')}}/img/Vector (1).png" alt="">
                             <h6>MONEY BACK GUARANTEE</h6>
                             <p>100% Money Back Guarantee.</p>
                         </div>
@@ -60,7 +59,7 @@
                     <div class="single-feature">
 
                         <div class="feature-content">
-                            <img src="img/Vector (2).png" alt="">
+                            <img src="{{asset('frontend_asset')}}/img/Vector (2).png" alt="">
                             <h6>ONLINE SUPPORT 24/7</h6>
                             <p>We have 24/7 helpline.</p>
                         </div>
@@ -399,7 +398,7 @@
                                         <a href="view_product.html">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory2.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory2.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -431,7 +430,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory3.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory3.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -462,7 +461,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -494,7 +493,7 @@
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
 
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -525,7 +524,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory2.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory2.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -556,7 +555,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -587,7 +586,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -618,7 +617,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -649,7 +648,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -681,7 +680,7 @@
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
 
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -712,7 +711,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -743,7 +742,7 @@
                                         <a href="#">
                                             <div class="card" style="padding: 5px;">
                                                 <div class="single-category">
-                                                    <img src="img/caterory1.jpg" class="w-100" alt="">
+                                                    <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" class="w-100" alt="">
                                                     <div class="category-content">
                                                         <ul class="category">
                                                             <li>
@@ -794,7 +793,7 @@
 
                                         <div class="rated">
                                             <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
                                                 <div class="category-content">
                                                     <h4>Men Gentle Shoes</h4>
                                                     <div class="category-name">
@@ -814,7 +813,7 @@
 
 
                                             <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
                                                 <div class="category-content">
                                                     <h4>Men Gentle Shoes</h4>
                                                     <div class="category-name">
@@ -833,7 +832,7 @@
                                             </div>
 
                                             <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
                                                 <div class="category-content">
                                                     <h4>Men Gentle Shoes</h4>
                                                     <div class="category-name">
@@ -852,96 +851,7 @@
                                             </div>
 
                                             <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
-                                                <div class="category-content">
-                                                    <h4>Men Gentle Shoes</h4>
-                                                    <div class="category-name">
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price">
-                                                            <p><span>$</span> 29.00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-
-                                    </div>
-                                    <br>
-                                    <div class="col-xl-4 rtd-p">
-
-
-                                        <h5>TOP RATED PRODUCTS</h5>
-
-                                        <div class="rated">
-                                            <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
-                                                <div class="category-content">
-                                                    <h4>Men Gentle Shoes</h4>
-                                                    <div class="category-name">
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price">
-                                                            <p><span>$</span> 29.00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
-                                                <div class="category-content">
-                                                    <h4>Men Gentle Shoes</h4>
-                                                    <div class="category-name">
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price">
-                                                            <p><span>$</span> 29.00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
-                                                <div class="category-content">
-                                                    <h4>Men Gentle Shoes</h4>
-                                                    <div class="category-name">
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price">
-                                                            <p><span>$</span> 29.00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
                                                 <div class="category-content">
                                                     <h4>Men Gentle Shoes</h4>
                                                     <div class="category-name">
@@ -972,7 +882,7 @@
 
                                         <div class="rated">
                                             <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
                                                 <div class="category-content">
                                                     <h4>Men Gentle Shoes</h4>
                                                     <div class="category-name">
@@ -992,7 +902,7 @@
 
 
                                             <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
                                                 <div class="category-content">
                                                     <h4>Men Gentle Shoes</h4>
                                                     <div class="category-name">
@@ -1011,7 +921,7 @@
                                             </div>
 
                                             <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
                                                 <div class="category-content">
                                                     <h4>Men Gentle Shoes</h4>
                                                     <div class="category-name">
@@ -1030,7 +940,96 @@
                                             </div>
 
                                             <div class="single-category">
-                                                <img src="img/caterory1.jpg" alt="">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
+                                                <div class="category-content">
+                                                    <h4>Men Gentle Shoes</h4>
+                                                    <div class="category-name">
+                                                        <div class="category-rating">
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                        </div>
+                                                        <div class="category-price">
+                                                            <p><span>$</span> 29.00</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                    </div>
+                                    <br>
+                                    <div class="col-xl-4 rtd-p">
+
+
+                                        <h5>TOP RATED PRODUCTS</h5>
+
+                                        <div class="rated">
+                                            <div class="single-category">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
+                                                <div class="category-content">
+                                                    <h4>Men Gentle Shoes</h4>
+                                                    <div class="category-name">
+                                                        <div class="category-rating">
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                        </div>
+                                                        <div class="category-price">
+                                                            <p><span>$</span> 29.00</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="single-category">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
+                                                <div class="category-content">
+                                                    <h4>Men Gentle Shoes</h4>
+                                                    <div class="category-name">
+                                                        <div class="category-rating">
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                        </div>
+                                                        <div class="category-price">
+                                                            <p><span>$</span> 29.00</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="single-category">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
+                                                <div class="category-content">
+                                                    <h4>Men Gentle Shoes</h4>
+                                                    <div class="category-name">
+                                                        <div class="category-rating">
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                        </div>
+                                                        <div class="category-price">
+                                                            <p><span>$</span> 29.00</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="single-category">
+                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
                                                 <div class="category-content">
                                                     <h4>Men Gentle Shoes</h4>
                                                     <div class="category-name">

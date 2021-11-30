@@ -1,3 +1,4 @@
+
 <!-- /.content-wrapper -->
 <footer class="main-footer">
     <strong>Copyright &copy; {{date('Y')}} <a href="{{url('/')}}">{{env('APP_NAME')}}</a>.</strong>
@@ -98,7 +99,7 @@
         })
     }
 </script>
- before  logout showing alert message
+ {{-- before  logout showing alert message --}}
 <script>
     $(document).on("click", "#logout", function (e) {
         e.preventDefault();

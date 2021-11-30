@@ -16,4 +16,17 @@ class frontendController extends Controller
 
         return view('frontend.dashboard',compact('bannerproducts','featureds'));
     }
+
+    public function details(){
+        return view('frontend.product_details.product_details');
+    }
+
+    public function userLogin(){
+        return view('frontend.partials.login');
+    }
+
+    public function userRegister(){
+        return view('frontend.partials.register');
+    }
+
 }

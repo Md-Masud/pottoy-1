@@ -2,7 +2,7 @@
 @section('title')
     
 @endsection
-@section('admin_content')
+@section('admin_contents')
 
 @endsection
 @section('admin_footer_js')

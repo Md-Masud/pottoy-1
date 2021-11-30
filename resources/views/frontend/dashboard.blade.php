@@ -20,15 +20,6 @@
          
     </section>
 
-
-
-<style>
-
-    </style>
-
-
-
-
     <!-- Banner-bottom-bar -->
     <section class="feature-area">
         <div class="container-fluid ">
@@ -1060,11 +1051,5 @@
             </div>
         </div>
     </section>
-    <br>
-
-
-
-
-
-@endsection
+    @endsection
 

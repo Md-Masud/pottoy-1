@@ -145,10 +145,9 @@
                                     </a>
                                 </div>
                                 @endforeach
-
                                 @foreach($latest_products as $latest_product)
                                 <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="2">
-                                    <a href="view_product.html">
+                                    <a href="{{route('product.details.show',$latest_product->slug)}}">
                                         <div class="card" style="padding: 5px;">
                                             <div class="single-category">
 

@@ -99,8 +99,9 @@ class ProductController extends Controller
         return view('admin.product.index', compact('categories', 'subcategories','brands','warehouses','pickup_point'));
     }
     public function cat(){
-        $category_id = request('category');
-        $subcategory =SubCategory::where('category_id',$category_id)->get();;
+     
+        $category_id = request('category');      
+        $subcategory =SubCategory::where('category_id',$category_id)->get();
         $option = "<option value=''>Select SubCategory</option>";
         foreach ($subcategory as $sub) {
             $option .= '<option value="' . $sub->id . '">' . $sub->sub_category_name . '</option>';

@@ -139,4 +139,26 @@ class CampaignController extends Controller
             'message' => 'Campaign Deleted'
         ]);
     }
+    //not status
+    public function notstatus($id)
+    {
+        Campaign::where('id',$id)->update(['status'=>0]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Status Deactive '
+        ]);
+
+    }
+
+    //active staus
+    public function activestatus($id)
+    {
+        Campaign::where('id',$id)->update(['status'=>1]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Status Activated '
+        ]);
+
+    }
+
 }

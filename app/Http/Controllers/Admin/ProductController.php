@@ -251,5 +251,69 @@ class ProductController extends Controller
         ]);
     }
 
+    public function notfeatured($id)
+    {
+         Product::where('id',$id)->update(['featured'=>0]);
+          return response()->json([
+            'success' => true,
+            'message' => 'Product Not  Featured '
+          ]);
+
+    }
+
+    //active featured
+    public function activefeatured($id)
+    {
+        Product::where('id',$id)->update(['featured'=>1]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Featured Activated'
+        ]);
+
+    }
+    //not Deal
+    public function notdeal($id)
+    {
+        Product::where('id',$id)->update(['today_deal'=>0]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Not Today deal '
+        ]);
+
+    }
+
+    //active Deal
+    public function activedeal($id)
+    {
+       Product::where('id',$id)->update(['today_deal'=>1]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Product today deal Activated '
+        ]);
+
+    }
+
+    //not status
+    public function notstatus($id)
+    {
+        Product::where('id',$id)->update(['status'=>0]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Status Deactive '
+        ]);
+
+    }
+
+    //active staus
+    public function activestatus($id)
+    {
+       Product::where('id',$id)->update(['status'=>1]);
+        return response()->json([
+            'success' => true,
+            'message' => 'Product Status Activated '
+        ]);
+
+    }
+
 
 }

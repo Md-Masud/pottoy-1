@@ -17,5 +17,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'App\H
 
 
 });
-
+Route::get('product/not-featured/{id}',[App\Http\Controllers\Admin\ProductController::class,'notfeatured']);
+Route::get('product/active-featured/{id}',[App\Http\Controllers\Admin\ProductController::class,'activefeatured']);
+Route::get('product/active-deal/{id}',[App\Http\Controllers\Admin\ProductController::class,'activedeal']);
+Route::get('product/not-deal/{id}',[App\Http\Controllers\Admin\ProductController::class,'notdeal']);
+Route::get('product/active-status/{id}',[App\Http\Controllers\Admin\ProductController::class,'activestatus']);
+Route::get('product/not-status/{id}',[App\Http\Controllers\Admin\ProductController::class,'notstatus']);
+Route::get('campaign/active-status/{id}',[App\Http\Controllers\Admin\CampaignController::class,'activestatus']);
+Route::get('campaign/not-status/{id}',[App\Http\Controllers\Admin\CampaignController::class,'notstatus']);
 Route::get('cat',[App\Http\Controllers\Admin\ProductController::class,'cat']);

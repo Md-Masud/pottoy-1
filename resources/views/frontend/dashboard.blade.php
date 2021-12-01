@@ -1,7 +1,8 @@
+
 @extends('frontend.master')
 
 @section('frontend_content')
-{{-- <<<<<<< HEAD --}}
+
 <section class="banner-slider">
     @foreach( $bannerproducts as $bannerproduct)
     <div class="banner-img-slide">
@@ -289,7 +290,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>                                                                                  
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -299,3 +300,4 @@
         </div>
 </section>
 @endsection
+

@@ -243,6 +243,60 @@
                     }
                 })
             }
+            //deactive status
+            $('body').on('click','.deactive_status', function(){
+                var id=$(this).data('id');
+                var url = "{{ url('campaign/not-status') }}/"+id;
+                $.ajax({
+                    url:url,
+                    type:'get',
+                    success: function (data) {
+                        table.ajax.reload();
+                        swal({
+                            title: 'Success!',
+                            text: data.message,
+                            type: 'success',
+                            timer: '1500'
+                        })
+                    },
+                    error: function () {
+                        swal({
+                            title: 'Oops...',
+                            text: data.message,
+                            type: 'error',
+                            timer: '1500'
+                        })
+                    }
+                });
+            });
+
+            //Active status
+            $('body').on('click','.active_status', function(){
+                var id=$(this).data('id');
+                var url = "{{ url('campaign/active-status') }}/"+id;
+                $.ajax({
+                    url:url,
+                    type:'get',
+                    success: function (data) {
+                        table.ajax.reload();
+                        swal({
+                            title: 'Success!',
+                            text: data.message,
+                            type: 'success',
+                            timer: '1500'
+                        })
+                    },
+                    error: function () {
+                        swal({
+                            title: 'Oops...',
+                            text: data.message,
+                            type: 'error',
+                            timer: '1500'
+                        })
+                    }
+                });
+            });
+
 
         </script>
     @endpush

@@ -142,10 +142,9 @@
                                     </a>
                                 </div>
                                 @endforeach
-
                                 @foreach($latest_products as $latest_product)
                                 <div class="mix category-2 col-xl-4 col-xs-6" data-myorder="2">
-                                    <a href="view_product.html">
+                                    <a href="{{route('product.details.show',$latest_product->slug)}}">
                                         <div class="card" style="padding: 5px;">
                                             <div class="single-category">
 
@@ -189,13 +188,8 @@
                                 @endforeach
                             </div>
                         </div>
-
-
-
-
                         <!-- Top Rated Section -->
                         <div class="col-xl-12">
-
 
                             <div class="top-rated-products">
                                 <div class="row">
@@ -203,6 +197,7 @@
                                     <h5 style="font-weight: bold; margin-bottom: 20px;">TOP POPULAR PRODUCTS</h5>
                                   @foreach($popular_products as $popular_product)
                                     <div class="col-xl-4 rtd-p">
+
                                         <div class="card" style="padding: 5px;">
                                             <div class="single-category">
                                                 <img src="{{asset('public/files/product/'.$popular_product->thumbnail)}}"

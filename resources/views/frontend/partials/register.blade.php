@@ -8,26 +8,45 @@
             {{-- <h4 class="text-center mb-3 ">Welcome to Projukti 71 Online Shop! Please login.</h4> --}}
             <div class="col-xl-4 offset-xl-4">
                 <div class="login">
-                    <form action="{{ route('user.register') }}" method="POST">
+                    <form action="{{ route('customer.registration') }}" method="POST">
                         @csrf
                         <label>User Name*</label>
-                        <input type="text" class="form-control" name="name" placeholder="Enter Your Name"> 
-
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus  placeholder="Enter Your Name">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
                         <label>E-mail*</label>
-                        <input type="email" class="form-control" name="email" placeholder="Enter Your Email Number">
+                        <input type="email" class="form-control" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"  placeholder="Enter Your Email Number">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
 
                         <label>Phone</label>
-                        <input type="text" class="form-control" name="phone" placeholder="Enter Your Email Number">
+                        <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="Enter Your Phone Number">
+                        @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
 
                         <label> Password*</label>
-                        <input type="password" class="form-control" name="password" placeholder=" Your Password">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder=" Your Password">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
 
                         <label> Confirm Password*</label>
-                        <input type="password" class="form-control" name="password_confirmation" placeholder=" Confirm Your Password">
+                        <input type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder=" Confirm Your Password">
 
                         <input type="submit" class="btn btn-primary mt-2 btn-sm" value="Submit">
 
-                        <span>Already Have An Account? <a href="{{ route('user.login') }}" style="color: rgb(63, 60, 60); text-decoration: none; font-weight: 600;">login</a></span>
+                        <span>Already Have An Account? <a href="{{ route('customer.login') }}" style="color: rgb(63, 60, 60); text-decoration: none; font-weight: 600;">login</a></span>
                     </form>
                     <span>or</span>
                     <div class="scocial-login">

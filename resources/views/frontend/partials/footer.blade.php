@@ -75,7 +75,7 @@
   <!-- footer end -->
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
- 
+
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js">
@@ -84,5 +84,25 @@
    <script src="{{ asset('frontend_asset/assets/js') }}/font.js"></script>
    <script src="{{ asset('frontend_asset/assets/js') }}/slick.min.js"></script>
    <script src="{{ asset('frontend_asset/assets/js') }}/script.js"></script>
+    <script type="text/javascript" src="{{ asset('admin_asset/plugins/toastr/toastr.min.js')}}"></script>
+    <script>
+        @if(Session::has('messege'))
+        var type = "{{Session::get('alert-type','info')}}"
+        switch (type) {
+            case 'info':
+                toastr.info("{{ Session::get('messege') }}");
+                break;
+            case 'success':
+                toastr.success("{{ Session::get('messege') }}");
+                break;
+            case 'warning':
+                toastr.warning("{{ Session::get('messege') }}");
+                break;
+            case 'error':
+                toastr.error("{{ Session::get('messege') }}");
+                break;
+        }
+        @endif
+    </script>
 
   @yield('frontend_footer_js')

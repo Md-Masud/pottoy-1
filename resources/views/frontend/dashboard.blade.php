@@ -103,7 +103,7 @@
                             <div class="row">
                                 @foreach($featureds as $featured)
                                 <div class="mix category-1 col-xl-4 col-xs-6" data-myorder="1">
-                                    <a href="view_product.html">
+                                    <a href="{{route('product.details.show',$featured->slug)}}">
                                         <div class="card" style="padding: 5px;">
                                             <div class="single-category">
                                                 <img src="{{asset('public/files/product/'.$featured->thumbnail)}}"
@@ -200,101 +200,47 @@
                             <div class="top-rated-products">
                                 <div class="row">
 
-                                    <h5 style="font-weight: bold; margin-bottom: 20px;">TOP RATED PRODUCTS</h5>
+                                    <h5 style="font-weight: bold; margin-bottom: 20px;">TOP POPULAR PRODUCTS</h5>
+                                  @foreach($popular_products as $popular_product)
+                                    <div class="col-xl-4 rtd-p">
+                                        <div class="card" style="padding: 5px;">
+                                            <div class="single-category">
+                                                <img src="{{asset('public/files/product/'.$popular_product->thumbnail)}}"
+                                                     alt="">
+                                                <div class="category-content">
+                                                    <ul class="category">
+                                                        <li>
+                                                            <span>{{$popular_product->name}}</span>
+                                                        </li>
+                                                        <li><i class="far fa-heart"></i></li>
+                                                    </ul>
+                                                    <div class="category-name">
+                                                        <h6>{{$popular_product->brand->brand_name}}</h6>
+                                                        <div class="category-rating">
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                            <i class="far fa-star"></i>
+                                                        </div>
+                                                        <div class="category-price " style="background-color: white">
+                                                            @if($popular_product->discount_price==NULL)
+                                                                <span
+                                                                    class="text-black">${{$popular_product->selling_price}}</span>
+                                                            @else
+                                                                <span
+                                                                    class="text-black">${{$popular_product->selling_price}}</span><br>
+                                                                <del
+                                                                    class="text-black">${{ $popular_product->discount_price }}</del>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
 
-                                    <div class="col-xl-4 rtd-p">
-                                        <div class="rated">
-                                            <div class="single-category">
-                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
-                                                <div class="category-content">
-                                                    <h4>Men Gentle Shoes</h4>
-                                                    <div class="category-name">
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price">
-                                                            <p><span>$</span> 29.00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-4 rtd-p">
-                                        <div class="rated">
-                                            <div class="single-category">
-                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
-                                                <div class="category-content">
-                                                    <h4>Men Gentle Shoes</h4>
-                                                    <div class="category-name">
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price">
-                                                            <p><span>$</span> 29.00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 rtd-p">
-                                        <div class="rated">
-                                            <div class="single-category">
-                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
-                                                <div class="category-content">
-                                                    <h4>Men Gentle Shoes</h4>
-                                                    <div class="category-name">
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price">
-                                                            <p><span>$</span> 29.00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 rtd-p">
-                                        <div class="rated">
-                                            <div class="single-category">
-                                                <img src="{{asset('frontend_asset')}}/img/caterory1.jpg" alt="">
-                                                <div class="category-content">
-                                                    <h4>Men Gentle Shoes</h4>
-                                                    <div class="category-name">
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price">
-                                                            <p><span>$</span> 29.00</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div> <!-- Column Right Ends -->
             </div>
         </div>

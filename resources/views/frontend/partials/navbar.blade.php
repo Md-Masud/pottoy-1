@@ -5,14 +5,20 @@
             <div class="col-xl-6">
                 <h3>Get Up To<strong>40% Off</strong>New-Season Styles</h3>
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-2">
                 <div class="btn-1">
                     <a href="#">Men</a>
                     <a href="#">Women</a>
                 </div>
             </div>
-            <div class="col-xl-3">
+            <div class="col-xl-2">
                 <h3 class="notice">*Limited Time Only</h3>
+            </div>
+            <div class="col-xl-2 text-end">
+                <div class="btn-1">
+                    <a class="mx-0" href="{{ route('user.login') }}">Login</a>
+                    <a class="mx-0" href="{{ route("user.register") }}">Register</a>
+                </div>
             </div>
         </div>
     </div>

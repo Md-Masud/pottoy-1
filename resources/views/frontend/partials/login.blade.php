@@ -6,7 +6,7 @@
         <div class="container">
             <div class="row">
                 {{-- <h4 class="text-center mb-3 ">Welcome to Projukti 71 Online Shop! Please login.</h4> --}}
-                <div class="col-xl-4 offset-xl-4">
+                <div class="col-xl-4 offset-xl-4 col-xl-4 offset-lg-4">
                     <div class="login">
                         <form action="{{ route('user.login') }}" method="POST">
                             @csrf

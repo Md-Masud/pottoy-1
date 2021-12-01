@@ -1,4 +1,3 @@
-
 @extends('frontend.master')
 
 @section('frontend_content')
@@ -8,13 +7,11 @@
     <div class="banner-img-slide">
         <div class="banner_img">
             <img src="{{ url($bannerproduct->image)}} " class="img-fluid w-100" alt="...">
-
         </div>
         <div class="banner-txt">
             <p>{{ $bannerproduct->title}}</p>
             <span>discount-{{ $bannerproduct->discount}}</span>
         </div>
-
     </div>
     @endforeach
 </section>
@@ -83,19 +80,24 @@
                 </div>
                 <br>
             </div> <!-- Column Right Ends -->
+
+
             <div class="col-xl-9">
                 <!-- Column Right Starts -->
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="controls">
-                            <div class="col-xl-9 col-xs-12 text-right">
-                                <a><button class="white-border filter" data-filter=".category-1">FEATURED
-                                        PRODUCTS</button></a>
-                                <a><button class="white-border filter" data-filter=".category-2">LATEST
-                                    PRODUCTS</button></a>
+                            <div class="row">
+                                <div class="col-xl-12 text-right">
+                                    <a><button class="white-border filter" data-filter=".category-1">FEATURED
+                                            PRODUCTS</button></a>
+                                    <a><button class="white-border filter" data-filter=".category-2">LATEST
+                                            PRODUCTS</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <hr>
                     <div class="col-xl-12">
                         <!-- Column Left Starts -->
@@ -106,7 +108,8 @@
                                     <a href="{{route('product.details.show',$featured->slug)}}">
                                         <div class="card" style="padding: 5px;">
                                             <div class="single-category">
-                                                <img src="{{asset('public/files/product/'.$featured->thumbnail)}}"
+                                                <img class="img-fluid w-100"
+                                                    src="{{asset('public/files/product/'.$featured->thumbnail)}}"
                                                     alt="">
                                                 <div class="category-content">
                                                     <ul class="category">
@@ -149,7 +152,8 @@
                                         <div class="card" style="padding: 5px;">
                                             <div class="single-category">
 
-                                                <img src="{{asset('public/files/product/'.$latest_product->thumbnail)}}"
+                                                <img class="img-fluid w-100"
+                                                    src="{{asset('public/files/product/'.$latest_product->thumbnail)}}"
                                                     alt="">
                                                 <div class="category-content">
                                                     <ul class="category">
@@ -189,61 +193,62 @@
                                 @endforeach
                             </div>
                         </div>
+                    </div>
 
+                    <!-- Top Rated Section -->
+                    <div class="col-xl-12">
+                        <div class="top-rated-products">
+                            <div class="row">
 
-
-
-                        <!-- Top Rated Section -->
-                        <div class="col-xl-12">
-
-
-                            <div class="top-rated-products">
-                                <div class="row">
-
-                                    <h5 style="font-weight: bold; margin-bottom: 20px;">TOP POPULAR PRODUCTS</h5>
-                                  @foreach($popular_products as $popular_product)
-                                    <div class="col-xl-4 rtd-p">
-                                        <div class="card" style="padding: 5px;">
-                                            <div class="single-category">
-                                                <img src="{{asset('public/files/product/'.$popular_product->thumbnail)}}"
-                                                     alt="">
-                                                <div class="category-content">
-                                                    <ul class="category">
-                                                        <li>
-                                                            <span>{{$popular_product->name}}</span>
-                                                        </li>
-                                                        <li><i class="far fa-heart"></i></li>
-                                                    </ul>
-                                                    <div class="category-name">
-                                                        <h6>{{$popular_product->brand->brand_name}}</h6>
-                                                        <div class="category-rating">
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                            <i class="far fa-star"></i>
-                                                        </div>
-                                                        <div class="category-price " style="background-color: white">
-                                                            @if($popular_product->discount_price==NULL)
-                                                                <span
-                                                                    class="text-black">${{$popular_product->selling_price}}</span>
-                                                            @else
-                                                                <span
-                                                                    class="text-black">${{$popular_product->selling_price}}</span><br>
-                                                                <del
-                                                                    class="text-black">${{ $popular_product->discount_price }}</del>
-                                                            @endif
-                                                        </div>
+                                <h5 style="font-weight: bold; margin-bottom: 20px;">TOP POPULAR PRODUCTS</h5>
+                                @foreach($popular_products as $popular_product)
+                                <div class="col-xl-4 rtd-p">
+                                    <div class="card" style="padding: 5px;">
+                                        <div class="single-category">
+                                            <img class="img-fluid w-100" src="{{asset('public/files/product/'.$popular_product->thumbnail)}}"
+                                                alt="">
+                                            <div class="category-content">
+                                                <ul class="category">
+                                                    <li>
+                                                        <span>{{$popular_product->name}}</span>
+                                                    </li>
+                                                    <li><i class="far fa-heart"></i></li>
+                                                </ul>
+                                                <div class="category-name">
+                                                    <h6>{{$popular_product->brand->brand_name}}</h6>
+                                                    <div class="category-rating">
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                        <i class="far fa-star"></i>
+                                                    </div>
+                                                    <div class="category-price " style="background-color: white">
+                                                        @if($popular_product->discount_price==NULL)
+                                                        <span
+                                                            class="text-black">${{$popular_product->selling_price}}</span>
+                                                        @else
+                                                        <span
+                                                            class="text-black">${{$popular_product->selling_price}}</span><br>
+                                                        <del
+                                                            class="text-black">${{ $popular_product->discount_price }}</del>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                </div>
+                                @endforeach
+                            </div> <!-- Column Right Ends -->
+                        </div>
+                    </div>
 
-                </div> <!-- Column Right Ends -->
+                </div>
             </div>
+
+
         </div>
+    </div>
 </section>
 @endsection
-

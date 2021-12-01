@@ -63,11 +63,11 @@
                                         <label for="exampleInputEmail1"> Sub Category <span class="text-danger">*</span> </label>
                                         <select class="form-control" name="sub_category_id"  id="sub_category">
                                             <option disabled="" selected="">==choose category==</option>
-                                            @foreach($subcategories as $row)
+{{--                                            @foreach($subcategories as $row)--}}
 
-                                                <option value="{{ $row->id }}"> {{ $row->name }}</option>
+{{--                                                <option value="{{ $row->id }}"> {{ $row->name }}</option>--}}
 
-                                            @endforeach
+{{--                                            @endforeach--}}
 
                                         </select>
                                     </div>

@@ -1,4 +1,6 @@
-
+@php
+   error_reporting(E_ALL);
+@endphp
 @extends('admin.master')
 @section('title')
     Brand

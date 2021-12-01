@@ -16,6 +16,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'App\H
 
 
 
+
 });
 Route::get('product/not-featured/{id}',[App\Http\Controllers\Admin\ProductController::class,'notfeatured']);
 Route::get('product/active-featured/{id}',[App\Http\Controllers\Admin\ProductController::class,'activefeatured']);

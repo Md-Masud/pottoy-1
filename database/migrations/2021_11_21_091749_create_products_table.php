@@ -41,6 +41,7 @@ class CreateProductsTable extends Migration
             $table->string('unit')->nullable();
             $table->string('tags')->nullable();
             $table->string('video')->nullable();
+            $table->integer('product_view')->nullable();
             $table->string('purchase_price')->nullable();
             $table->string('selling_price')->nullable();
             $table->string('discount_price')->nullable();

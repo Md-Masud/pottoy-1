@@ -8,5 +8,6 @@ Route::group(['namespace' => 'App\Http\Controllers\Frontend'], function(){
     Route::get('/product/details', 'FrontendController@details')->name('details');
     Route::get('/user/login', 'FrontendController@userLogin')->name('user.login');
     Route::get('/user/register', 'FrontendController@userRegister')->name('user.register');
+    Route::get('product_details/{slug}','FrontendController@product_details')->name('product.details.show');
 
 });
